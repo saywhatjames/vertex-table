@@ -22,6 +22,7 @@ var Ng2SmartTableComponent = (function () {
         this.create = new EventEmitter();
         this.custom = new EventEmitter();
         this.deleteConfirm = new EventEmitter();
+        this.onPageChange = new EventEmitter();
         this.editConfirm = new EventEmitter();
         this.createConfirm = new EventEmitter();
         this.rowHover = new EventEmitter();
@@ -148,6 +149,7 @@ var Ng2SmartTableComponent = (function () {
         return deepExtend({}, this.defaultSettings, this.settings);
     };
     Ng2SmartTableComponent.prototype.changePage = function ($event) {
+        this.onPageChange.emit(true);
         this.resetAllSelector();
     };
     Ng2SmartTableComponent.prototype.sort = function ($event) {
@@ -217,6 +219,10 @@ __decorate([
     Output(),
     __metadata("design:type", Object)
 ], Ng2SmartTableComponent.prototype, "editConfirm", void 0);
+__decorate([
+    Output(),
+    __metadata("design:type", Object)
+],Ng2SmartTableComponent.prototype, "onPageChange", void 0);
 __decorate([
     Output(),
     __metadata("design:type", Object)
